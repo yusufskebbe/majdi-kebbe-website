@@ -1,1 +1,762 @@
 <router-outlet />
+<header class="bg-gray-100">
+  <nav class="flex justify-between items-center p-8">
+    <h1 class="text-xl font-bold">Majdi Kebbe</h1>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-8">
+      <li>
+        <a href="#" class="hover:text-blue-600 transition-colors">Anasayfa</a>
+      </li>
+      <li>
+        <a href="#about" class="hover:text-blue-600 transition-colors"
+          >Hakkımda</a
+        >
+      </li>
+      <li>
+        <a href="#courses" class="hover:text-blue-600 transition-colors"
+          >Kurslar</a
+        >
+      </li>
+      <li>
+        <a href="#form" class="hover:text-blue-600 transition-colors"
+          >İletişim</a
+        >
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle mobile menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        [class.hidden]="isMobileMenuOpen()"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        [class.hidden]="!isMobileMenuOpen()"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <button
+      class="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+    >
+      Keşfet
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="md:hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-40 transition-opacity duration-300"
+    [class.opacity-0]="!isMobileMenuOpen()"
+    [class.invisible]="!isMobileMenuOpen()"
+    (click)="toggleMobileMenu()"
+  ></div>
+
+  <!-- Mobile Menu Panel -->
+  <div
+    class="md:hidden fixed right-0 top-0 bottom-0 w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out"
+    [class.translate-x-0]="isMobileMenuOpen()"
+    [class.translate-x-full]="!isMobileMenuOpen()"
+  >
+    <div class="p-6 space-y-6">
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-bold">Menu</h2>
+        <button
+          class="text-gray-600 hover:text-gray-900 focus:outline-none"
+          (click)="toggleMobileMenu()"
+          aria-label="Close menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="space-y-4">
+        <li>
+          <a
+            href="#"
+            class="block py-2 text-gray-600 hover:text-blue-600 transition-colors"
+            (click)="toggleMobileMenu()"
+          >
+            Anasayfa
+          </a>
+        </li>
+        <li>
+          <a
+            href="#about"
+            class="block py-2 text-gray-600 hover:text-blue-600 transition-colors"
+            (click)="toggleMobileMenu()"
+          >
+            Hakkımda
+          </a>
+        </li>
+        <li>
+          <a
+            href="#courses"
+            class="block py-2 text-gray-600 hover:text-blue-600 transition-colors"
+            (click)="toggleMobileMenu()"
+          >
+            Kurslar
+          </a>
+        </li>
+        <li>
+          <a
+            href="#form"
+            class="block py-2 text-gray-600 hover:text-blue-600 transition-colors"
+            (click)="toggleMobileMenu()"
+          >
+            İletişim
+          </a>
+        </li>
+      </ul>
+
+      <button
+        class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+        (click)="toggleMobileMenu()"
+      >
+        Keşfet
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <!-- Section 1: Hero/Banner -->
+  <!-- Section 1: Hero/Banner -->
+  <section
+    id="hero"
+    class="section-hero min-h-[500px] flex flex-col text-center md:text-left md:flex-row px-4 md:px-16 gap-8 mt-16"
+  >
+    <div
+      class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start px-4 md:px-8 gap-4 py-8 md:py-0"
+    >
+      <h1 class="font-bold text-3xl md:text-4xl w-full">
+        İngilizceyi Keşfet, Dünyaya Açıl
+      </h1>
+      <p class="text-gray-600">
+        Özel derslerle akıcı İngilizce konuşma, sınavlara hazırlık ve
+        profesyonel İngilizce eğitimi.
+      </p>
+      <a class="w-full md:w-1/2" href="#services">
+        <button
+          class="bg-blue-500 text-white w-1/2 px-4 py-2 rounded-md hover:bg-blue-600 self-center md:self-start"
+        >
+          Şimdi Keşfet
+        </button>
+      </a>
+    </div>
+    <div class="relative w-full md:w-1/2 min-h-[300px] md:min-h-[500px]">
+      <img
+        src="../assets/hero.jpg"
+        alt="Hero"
+        class="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
+      />
+    </div>
+  </section>
+
+  <!-- <section
+    id="students-number"
+    class="min-h-[300px] md:min-h-[500px] px-4 sm:px-8 md:px-16"
+  >
+    <div class="flex flex-col justify-between h-full md:h-[500px]">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-center pt-4 md:pt-8 mt-8 md:mt-16"
+      >
+        Numbers of Students I have trained
+      </h2>
+      <div
+        class="card-items grid grid-cols-2 md:flex md:justify-center items-center gap-4 sm:gap-8 md:gap-16 my-8 md:mb-28"
+      >
+        <div class="info-card p-4 flex flex-col items-center">
+          <div class="mb-2">
+            <om-number-ticker
+              [countTo]="1000"
+              class="text-2xl sm:text-3xl md:text-4xl font-bold block text-center"
+            ></om-number-ticker>
+          </div>
+          <p class="text-sm sm:text-base text-gray-600">Students</p>
+        </div>
+        <div class="info-card p-4 flex flex-col items-center">
+          <div class="mb-2">
+            <om-number-ticker
+              [countTo]="100"
+              class="text-2xl sm:text-3xl md:text-4xl font-bold block text-center"
+            ></om-number-ticker>
+          </div>
+          <p class="text-sm sm:text-base text-gray-600">Hours</p>
+        </div>
+        <div class="info-card p-4 flex flex-col items-center">
+          <div class="mb-2">
+            <om-number-ticker
+              [countTo]="+10"
+              class="text-2xl sm:text-3xl md:text-4xl font-bold block text-center"
+            ></om-number-ticker>
+          </div>
+          <p class="text-sm sm:text-base text-gray-600">Courses</p>
+        </div>
+        <div class="info-card p-4 flex flex-col items-center">
+          <div class="mb-2">
+            <om-number-ticker
+              [countTo]="95"
+              class="text-2xl sm:text-3xl md:text-4xl font-bold block text-center"
+            ></om-number-ticker>
+          </div>
+          <p class="text-sm sm:text-base text-gray-600">Rate</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Section 2: About/Introduction -->
+  <section
+    id="about"
+    class="section-about min-h-[500px] flex flex-col md:flex-row px-4 md:px-16 gap-8 py-8 mt-16"
+  >
+    <div
+      class="relative w-full md:w-1/2 min-h-[300px] md:min-h-[500px] order-2 md:order-1 flex justify-center items-center"
+    >
+      <div
+        class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg"
+      >
+        <img
+          src="../assets/majdi2.png"
+          alt="About"
+          class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-300"
+        />
+      </div>
+    </div>
+    <div
+      class="w-full md:w-1/2 flex flex-col justify-center items-start px-4 md:px-8 gap-4 order-1 md:order-2"
+    >
+      <h1 class="font-bold text-3xl md:text-4xl w-full">Hakkımda</h1>
+      <p class="text-gray-600 text-lg">
+        20 yıllık tecrübemle, öğrencilerime sadece İngilizce öğretmiyor, onlara
+        dilin inceliklerini ve kültürünü de aktarıyorum. Her öğrencinin öğrenme
+        stilinin benzersiz olduğuna inanıyorum ve derslerimi bireysel
+        ihtiyaçlara göre şekillendiriyorum. Amacım, öğrencilerimin kendine
+        güvenen, akıcı İngilizce konuşan bireyler olmalarını sağlamak.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 3: Services/Offerings -->
+  <section
+    id="services"
+    class="section-services py-8 sm:py-12 md:py-16 bg-gray-50 px-4 sm:px-8 md:px-16"
+  >
+    <div class="container mx-auto">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16"
+      >
+        Neler Yapıyoruz?
+      </h2>
+
+      <div class="relative">
+        <!-- Connection Lines -->
+        <div
+          class="hidden md:block absolute w-2/3 h-1 bg-blue-400 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        ></div>
+
+        <!-- Vertical connection lines for mobile -->
+        <div
+          class="absolute md:hidden w-1 h-full bg-blue-400 left-1/2 -translate-x-1/2 top-0"
+        ></div>
+
+        <!-- Squares Container -->
+        <div
+          class="flex flex-col md:flex-row justify-around items-center gap-28 md:gap-16 lg:gap-36"
+        >
+          <!-- Square 1 -->
+          <div
+            class="w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 bg-white shadow-lg rounded-lg p-5 sm:p-6 transform rotate-45 hover:scale-105 transition-all duration-300 relative z-10 group"
+          >
+            <div
+              class="h-full flex flex-col justify-center items-center text-center -rotate-45 group-hover:scale-105"
+            >
+              <i
+                class="fas fa-handshake text-2xl sm:text-3xl text-blue-500 mb-3 sm:mb-4"
+              ></i>
+              <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                Birebir Dersler
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Hedeflerinize uygun birebir dersler
+              </p>
+            </div>
+          </div>
+
+          <!-- Square 2 -->
+          <div
+            class="w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 bg-white shadow-lg rounded-lg p-5 sm:p-6 transform rotate-45 hover:scale-105 transition-all duration-300 relative z-10 group"
+          >
+            <div
+              class="h-full flex flex-col justify-center items-center text-center -rotate-45 group-hover:scale-105"
+            >
+              <i
+                class="fas fa-graduation-cap text-2xl sm:text-3xl text-blue-500 mb-3 sm:mb-4"
+              ></i>
+              <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                Baştan Sona Kurs Bitir
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Seviyenize göre kursta başlayıp bitirme imkanı
+              </p>
+            </div>
+          </div>
+
+          <!-- Square 3 -->
+          <div
+            class="w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 bg-white shadow-lg rounded-lg p-5 sm:p-6 transform rotate-45 hover:scale-105 transition-all duration-300 relative z-10 group"
+          >
+            <div
+              class="h-full flex flex-col justify-center items-center text-center -rotate-45 group-hover:scale-105"
+            >
+              <i
+                class="fas fa-comments text-2xl sm:text-3xl text-blue-500 mb-3 sm:mb-4"
+              ></i>
+              <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                Akademik İngilizce
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Akademik İngilizce dersleri (TOEFL, IELTS)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Testimonials -->
+  <section
+    id="courses"
+    class="section-testimonials py-8 sm:py-12 lg:py-16 bg-gray-50 px-4 sm:px-8 lg:px-16"
+  >
+    <div class="container mx-auto px-2 sm:px-4">
+      <h2
+        class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8"
+      >
+        Kurslarımız
+      </h2>
+
+      <div class="relative">
+        <!-- Navigation Arrows - Hidden on mobile, visible on larger screens -->
+        <button
+          (click)="scrollLeft()"
+          class="hidden md:block absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 lg:p-3 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll left"
+        >
+          <svg
+            class="w-4 h-4 lg:w-6 lg:h-6 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <button
+          (click)="scrollRight()"
+          class="hidden md:block absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 lg:p-3 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll right"
+        >
+          <svg
+            class="w-4 h-4 lg:w-6 lg:h-6 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Course Cards Container -->
+        <!-- Mobile: Vertical stack, Tablet+: Horizontal scroll -->
+        <div
+          class="md:course-scroll-container md:overflow-x-auto md:scrollbar-hide"
+        >
+          <!-- Mobile Layout: Vertical Stack -->
+          <div class="flex flex-col gap-4 md:hidden py-4">
+            <div
+              class="w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/levels.png"
+                alt="Course 1"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">A1 - C2</h3>
+                <p class="text-gray-600 text-sm">
+                  Seviyenize göre ingilizce kursları
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/academic-english.png"
+                alt="Course 2"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Akademik İngilizce</h3>
+                <p class="text-gray-600 text-sm">
+                  Sınav teknikleri, pratik testler ve kişiselleştirilmiş geri
+                  bildirimlerle sınavlara en iyi şekilde hazırlanın
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/ielts-and-tofel.png"
+                alt="Course 4"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">IELTS ve TOEFL Kursu</h3>
+                <p class="text-gray-600 text-sm">
+                  Sınav formatına uyumlu IELTS ve TOEFL kursu
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/speaking.png"
+                alt="Course 3"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Speaking Kursu</h3>
+                <p class="text-gray-600 text-sm">
+                  Konuşma teknikleri, dilbilgisi, kelime bilme ve sözlük eğitimi
+                  ile konuşma becerinizi geliştirin
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tablet+ Layout: Horizontal Scroll -->
+          <div
+            class="hidden md:flex gap-4 lg:gap-6 py-4 px-4 justify-center lg:justify-start"
+          >
+            <div
+              class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/levels.png"
+                alt="Course 1"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">A1 - C2</h3>
+                <p class="text-gray-600">Seviyenize göre ingilizce kursları</p>
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/academic-english.png"
+                alt="Course 2"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Akademik İngilizce</h3>
+                <p class="text-gray-600">
+                  Sınav teknikleri, pratik testler ve kişiselleştirilmiş geri
+                  bildirimlerle sınavlara en iyi şekilde hazırlanın
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/ielts-and-tofel.png"
+                alt="Course 4"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">IELTS ve TOEFL Kursu</h3>
+                <p class="text-gray-600">
+                  Sınav formatına uyumlu IELTS ve TOEFL kursu
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src="../assets/speaking.png"
+                alt="Course 3"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Speaking Kursu</h3>
+                <p class="text-gray-600">
+                  Konuşma teknikleri, dilbilgisi, kelime bilme ve sözlük eğitimi
+                  ile konuşma becerinizi geliştirin
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ/Information -->
+  <section
+    id="form"
+    class="section-form py-8 sm:py-12 md:py-16 bg-white px-4 sm:px-8 md:px-16"
+  >
+    <div class="container mx-auto px-0 sm:px-4 max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 sm:mb-8">
+        Benimle İletişime Geçin
+      </h2>
+      <p class="text-center text-gray-600 mb-6 sm:mb-8 px-4">
+        Öğrenme yolunuzu başlatmak için bize ulaşın
+      </p>
+
+      <form
+        [formGroup]="contactForm"
+        class="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6"
+      >
+        <div class="space-y-2 sm:space-y-3">
+          <label
+            for="name"
+            class="block text-base sm:text-sm font-medium text-gray-700"
+            >İsim Soyisim</label
+          >
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="w-full px-4 py-3 sm:py-2 text-base border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+            placeholder="İsim Soyisim"
+          />
+        </div>
+
+        <div class="space-y-2 sm:space-y-3">
+          <label
+            for="email"
+            class="block text-base sm:text-sm font-medium text-gray-700"
+            >Email Adresi</label
+          >
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="w-full px-4 py-3 sm:py-2 text-base border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+            placeholder="Email Adresi"
+          />
+        </div>
+
+        <div class="space-y-2 sm:space-y-3">
+          <label
+            for="phone"
+            class="block text-base sm:text-sm font-medium text-gray-700"
+            >Telefon Numarası</label
+          >
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phoneNumber"
+            class="w-full px-4 py-3 sm:py-2 text-base border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+            placeholder="Telefon Numarası"
+          />
+        </div>
+
+        <button
+          (click)="onSubmit()"
+          type="submit"
+          class="w-full mt-6 bg-blue-500 text-white py-4 sm:py-3 px-6 text-lg sm:text-base rounded-md hover:bg-blue-600 transition-colors duration-300 font-medium"
+        >
+          Gönder
+        </button>
+        <label
+          class="block text-base text-center sm:text-sm font-medium text-gray-700"
+          for=""
+          >Veya</label
+        >
+        <button
+          (click)="redirectToWhatsApp()"
+          class="w-full mt-6 bg-green-500 text-white py-4 sm:py-3 px-6 text-lg sm:text-base rounded-md hover:bg-green-600 transition-colors duration-300 font-medium"
+        >
+          WhatsApp üzerinden iletişime geç
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 7: Contact/Call to Action -->
+  <section
+    id="footer"
+    class="bg-gray-900 text-gray-300 py-8 sm:py-12 px-4 sm:px-8 lg:px-16"
+  >
+    <div class="container mx-auto px-2 sm:px-4">
+      <!-- Main Footer Content -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 sm:space-y-8 md:space-y-0"
+      >
+        <!-- Brand Section -->
+        <div class="text-center md:text-left max-w-sm">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+            Majdi Kebbe
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            English Language Instructor
+          </p>
+        </div>
+
+        <!-- Contact & Social -->
+        <div class="flex flex-col items-center md:items-end space-y-4">
+          <!-- Contact Links -->
+          <!-- Mobile: Stack vertically, Desktop: Side by side -->
+          <div
+            class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6"
+          >
+            <a href="tel:+905340798944" class="footer-link group">
+              <span class="flex items-center">
+                <i
+                  class="fas fa-phone text-blue-400 group-hover:text-blue-300 mr-2 text-sm sm:text-base"
+                ></i>
+                <span
+                  class="group-hover:text-white transition-colors text-sm sm:text-base"
+                  >+90 534 079 89 44</span
+                >
+              </span>
+            </a>
+            <a href="mailto:contact@majdikebbe.com" class="footer-link group">
+              <span class="flex items-center">
+                <i
+                  class="fas fa-envelope text-blue-400 group-hover:text-blue-300 mr-2 text-sm sm:text-base"
+                ></i>
+                <span
+                  class="group-hover:text-white transition-colors text-sm sm:text-base"
+                  >majdikebbe&#64;gmail.com</span
+                >
+              </span>
+            </a>
+          </div>
+
+          <!-- Social Media Icons -->
+          <div class="flex space-x-4 sm:space-x-6">
+            <a
+              href="https://www.linkedin.com/in/majdi-kebbe-1a045252/"
+              class="hover:transform hover:scale-110 transition-transform"
+            >
+              <i
+                class="fab fa-linkedin text-xl sm:text-2xl text-blue-400 hover:text-blue-300"
+              ></i>
+            </a>
+
+            <a
+              href="https://api.whatsapp.com/send?phone=905340798944&text=Merhaba%20bilgi%20alabilir%20miyim%20%3F"
+              class="hover:transform hover:scale-110 transition-transform"
+            >
+              <i
+                class="fab fa-whatsapp text-xl sm:text-2xl text-blue-400 hover:text-blue-300"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="mt-8 sm:mt-12 flex justify-center">
+        <nav class="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-2">
+          <a
+            href="#"
+            class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+            >Anasayfa</a
+          >
+          <a
+            href="#about"
+            class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+            >Hakkımda</a
+          >
+          <a
+            href="#courses"
+            class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+            >Kurslar</a
+          >
+          <a
+            href="#form"
+            class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+            >İletişim</a
+          >
+        </nav>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800 text-center"
+      >
+        <p class="text-gray-500 text-xs sm:text-sm">
+          © 2025 Majdi Kebbe. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
